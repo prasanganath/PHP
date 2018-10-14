@@ -59,22 +59,21 @@ if(isset($_POST["register"]))
    ";
    require 'class/class.phpmailer.php';
    $mail = new PHPMailer;
-   $mail->IsSMTP();        //Sets Mailer to send message using SMTP
-   $mail->Host = 'smtpout.secureserver.net';  //Sets the SMTP hosts of your Email hosting, this for Godaddy
-   $mail->Port = '80';        //Sets the default SMTP server port
-   $mail->SMTPAuth = true;       //Sets SMTP authentication. Utilizes the Username and Password variables
-   $mail->Username = 'xxxxxxxx';     //Sets SMTP username
-   $mail->Password = 'xxxxxxxx';     //Sets SMTP password
-   $mail->SMTPSecure = '';       //Sets connection prefix. Options are "", "ssl" or "tls"
-   $mail->From = 'info@webslesson.info';   //Sets the From email address for the message
-   $mail->FromName = 'Webslesson';     //Sets the From name of the message
-   $mail->AddAddress($_POST['user_email'], $_POST['user_name']);  //Adds a "To" address   
-   $mail->WordWrap = 50;       //Sets word wrapping on the body of the message to a given number of characters
-   $mail->IsHTML(true);       //Sets message type to HTML    
-   $mail->Subject = 'Email Verification';   //Sets the Subject of the message
-   $mail->Body = $mail_body;       //An HTML or plain text message body
-   if($mail->Send())        //Send an Email. Return true on success or false on error
-   {
+   $mail->IsSMTP();        
+   $mail->Host = 'smtpout.secureserver.net';  
+   $mail->Port = '80';        
+   $mail->SMTPAuth = true;      
+   $mail->Username = 'xxxxxxxx';     
+   $mail->Password = 'xxxxxxxx';    
+   $mail->SMTPSecure = '';      
+   $mail->From = 'info@webslesson.info';   
+   $mail->FromName = 'Webslesson';     
+   $mail->AddAddress($_POST['user_email'], $_POST['user_name']);   
+   $mail->WordWrap = 50;       
+   $mail->IsHTML(true);           
+   $mail->Subject = 'Email Verification';   
+   $mail->Body = $mail_body;       false on error
+   if($mail->Send())        
     $message = '<label class="text-success">Register Done, Please check your mail.</label>';
    }
   }
